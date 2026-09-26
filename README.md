@@ -346,7 +346,7 @@ See the backend repository README for backend setup and API details.
 Install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 Create `.env.local`:
@@ -358,7 +358,7 @@ NEXT_PUBLIC_API_URL=http://localhost:5000/api
 Start the development server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 The frontend will normally be available at:
@@ -374,13 +374,13 @@ Make sure the backend is running before using authenticated API functionality.
 Build the application:
 
 ```bash
-npm run build
+bun run build
 ```
 
 Start the production server:
 
 ```bash
-npm start
+bun start
 ```
 
 ## MVP Scope
