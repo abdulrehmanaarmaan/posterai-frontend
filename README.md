@@ -433,7 +433,6 @@ The following features were intentionally kept outside the MVP scope:
 
 This project was created as an MVP assignment/project.
 
-2. Need to make routes private.
 3. Need to add readmes.
 4. Need to fix poster creation, updation and deletion.
 
