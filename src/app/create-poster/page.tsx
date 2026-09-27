@@ -3,12 +3,38 @@ import PosterForm from "@/components/poster/PosterForm";
 import Link from "next/link";
 import { Suspense } from "react";
 
-const CreatePoster = async (
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>,
-) => {
-  const resolvedParams = await searchParams;
+interface CreatePosterPageProps {
+  searchParams: Promise<{
+    [key: string]:
+      | string
+      | string[]
+      | undefined;
+  }>;
+}
 
-  const templateId = resolvedParams.templateId;
+const CreatePoster = async ({
+  searchParams,
+}: CreatePosterPageProps) => {
+  const resolvedParams =
+    await searchParams;
+
+  const rawTemplateId =
+    resolvedParams.templateId;
+
+  /*
+   * Next.js search params can technically be:
+   *
+   * string
+   * string[]
+   * undefined
+   *
+   * For this page we only accept a single
+   * templateId.
+   */
+  const templateId =
+    typeof rawTemplateId === "string"
+      ? rawTemplateId
+      : "";
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -32,8 +58,9 @@ const CreatePoster = async (
                 </h1>
 
                 <p className="mt-4 text-base leading-7 text-slate-600">
-                  Provide your poster information, upload your photos, and
-                  generate a professional poster layout.
+                  Provide your poster information,
+                  upload your photos, and generate a
+                  professional poster layout.
                 </p>
               </div>
 
@@ -50,7 +77,6 @@ const CreatePoster = async (
         <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 md:py-12 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
             {/* Main form */}
-
             <Suspense
               fallback={
                 <div className="rounded-xl border border-slate-200 bg-white p-6">
@@ -59,7 +85,9 @@ const CreatePoster = async (
               }
             >
               <div className="min-w-0 rounded-2xl border bg-white p-5 shadow-sm sm:p-8">
-                <PosterForm templateId={templateId as string} />
+                <PosterForm
+                  templateId={templateId}
+                />
               </div>
             </Suspense>
 
@@ -76,18 +104,24 @@ const CreatePoster = async (
               </h2>
 
               <ul className="mt-5 space-y-4 text-sm leading-6 text-slate-600">
-                <li>Use a clear Bangla headline that fits the occasion.</li>
-
-                <li>Upload high-quality photos with good lighting.</li>
-
                 <li>
-                  Keep names, designations, and organization information
-                  accurate.
+                  Use a clear Bangla headline that
+                  fits the occasion.
                 </li>
 
                 <li>
-                  You can regenerate the poster if the initial layout needs
-                  improvement.
+                  Upload high-quality photos with good
+                  lighting.
+                </li>
+
+                <li>
+                  Keep names, designations, and
+                  organization information accurate.
+                </li>
+
+                <li>
+                  You can regenerate the poster if the
+                  initial layout needs improvement.
                 </li>
               </ul>
             </aside>

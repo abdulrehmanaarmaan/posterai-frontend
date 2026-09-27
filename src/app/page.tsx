@@ -41,12 +41,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            role="img"
-            aria-label="Poster preview"
-            className="min-h-100 rounded-2xl border bg-slate-50"
-          >
-            {/* Hero poster preview */}
+          <div className="overflow-hidden rounded-2xl border bg-slate-50">
+            <Image
+              src="/images/hero-poster.png"
+              alt="Example poster created with the AI Political Poster Maker"
+              width={1200}
+              height={1600}
+              priority
+              className="h-auto w-full object-cover"
+            />
           </div>
         </div>
       </section>

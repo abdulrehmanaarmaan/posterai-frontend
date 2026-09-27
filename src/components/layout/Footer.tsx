@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import {
-    GitBranch,
   Mail,
   ShieldCheck,
 } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -86,7 +86,7 @@ export default function Footer() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 hover:text-white"
                 >
-                  <GitBranch size={16} aria-hidden="true" />
+                  <FaGithub size={16} aria-hidden="true" />
                   GitHub
                 </a>
               </li>
