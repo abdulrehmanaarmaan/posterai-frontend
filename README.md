@@ -432,7 +432,3 @@ The following features were intentionally kept outside the MVP scope:
 ## License
 
 This project was created as an MVP assignment/project.
-
-Implementation note: The poster-generation flow is implemented using the Google Gemini API (gemini-3.8-flash) with structured JSON output for layout generation and server-side rendering via Puppeteer. At the time of submission, the Gemini generation endpoint was returning an upstream availability/rate-limit error, so the generation portion may not complete successfully during live evaluation. The remaining authentication, template, upload, poster persistence, rendering, history, regeneration, and download flows are implemented.
-
-1. Need to add image in hero section.
